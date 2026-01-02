@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enerzjy | Empowering a Sustainable Future</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --ocean-blue: #1E3A5F;
+            --vibrant-green: #2ECC71;
+            --earth-green: #27AE60;
+            --warm-copper: #C67C3B;
+            --clean-white: #FFFFFF;
+            --charcoal: #2C3E50;
+            --bright-lime: #A8E063;
+            --sky-blue: #56CCF2;
+            --light-green: #E8F5E9;
+            --off-white: #F8F9FA;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', sans-serif;
+            color: var(--charcoal);
+            background: var(--clean-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(46, 204, 113, 0.2);
+            padding: 20px 0;
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .nav-logo-text {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--warm-copper);
+            letter-spacing: 2px;
+        }
+
+        .nav-logo-icon {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, var(--vibrant-green), var(--earth-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 45px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--ocean-blue);
+            font-size: 0.9em;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--vibrant-green);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--charcoal) 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(46, 204, 113, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(168, 224, 99, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(46, 204, 113, 0.2);
+            color: var(--bright-lime);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-size: 0.85em;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .hero-title {
+            font-size: 4.5em;
+            color: var(--clean-white);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+        }
+
+        .hero-title-highlight {
+            background: linear-gradient(135deg, var(--vibrant-green), var(--bright-lime));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5em;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin-bottom: 50px;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 18px 45px;
+            text-decoration: none;
+            font-size: 0.95em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--vibrant-green), var(--earth-green));
+            color: var(--clean-white);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(46, 204, 113, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--clean-white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--clean-white);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 60px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--light-green);
+            color: var(--earth-green);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 3em;
+            color: var(--ocean-blue);
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2em;
+            color: var(--charcoal);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Features Grid */
+        .features {
+            background: var(--off-white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: var(--clean-white);
+            padding: 45px 35px;
+            border-radius: 16px;
+            transition: all 0.3s;
+            border: 1px solid rgba(46, 204, 113, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(46, 204, 113, 0.15);
+            border-color: var(--vibrant-green);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--vibrant-green), var(--earth-green));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            margin-bottom: 25px;
+        }
+
+        .feature-title {
+            font-size: 1.4em;
+            color: var(--ocean-blue);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .feature-desc {
+            color: var(--charcoal);
+            line-height: 1.8;
+            opacity: 0.8;
+        }
+
+        /* ESG Metrics */
+        .esg-metrics {
+            background: var(--ocean-blue);
+            color: var(--clean-white);
+        }
+
+        .esg-metrics .section-title {
+            color: var(--clean-white);
+        }
+
+        .esg-metrics .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .metric-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .metric-value {
+            font-size: 3em;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--vibrant-green), var(--bright-lime));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .metric-label {
+            font-size: 1em;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 1px;
+        }
+
+        /* Solutions */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+        }
+
+        .solution-card {
+            background: linear-gradient(135deg, var(--light-green) 0%, var(--clean-white) 100%);
+            padding: 50px;
+            border-radius: 20px;
+            border-left: 5px solid var(--vibrant-green);
+        }
+
+        .solution-number {
+            font-size: 0.9em;
+            color: var(--earth-green);
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .solution-title {
+            font-size: 1.8em;
+            color: var(--ocean-blue);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .solution-desc {
+            color: var(--charcoal);
+            line-height: 1.9;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .solution-features {
+            list-style: none;
+        }
+
+        .solution-features li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            color: var(--charcoal);
+            opacity: 0.8;
+        }
+
+        .solution-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--vibrant-green);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--vibrant-green), var(--earth-green));
+            color: var(--clean-white);
+            text-align: center;
+            padding: 80px 60px;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--off-white);
+            padding: 100px 60px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 60px;
+        }
+
+        .contact-info {
+            background: var(--clean-white);
+            padding: 50px;
+            border-radius: 16px;
+            border: 1px solid rgba(46, 204, 113, 0.1);
+        }
+
+        .contact-info h3 {
+            font-size: 1.8em;
+            color: var(--ocean-blue);
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .contact-item {
+            margin-bottom: 25px;
+        }
+
+        .contact-label {
+            font-size: 0.85em;
+            color: var(--earth-green);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .contact-value {
+            font-size: 1.1em;
+            color: var(--charcoal);
+        }
+
+        .contact-value a {
+            color: var(--ocean-blue);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-value a:hover {
+            color: var(--vibrant-green);
+        }
+
+        .contact-form {
+            background: var(--clean-white);
+            padding: 50px;
+            border-radius: 16px;
+            border: 1px solid rgba(46, 204, 113, 0.1);
+        }
+
+        .contact-form h3 {
+            font-size: 1.8em;
+            color: var(--ocean-blue);
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85em;
+            color: var(--earth-green);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(46, 204, 113, 0.2);
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--vibrant-green);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .form-status.success {
+            background: var(--light-green);
+            color: var(--earth-green);
+        }
+
+        .form-status.error {
+            background: #FFEBEE;
+            color: #C62828;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 60px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        footer a {
+            color: var(--vibrant-green);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--bright-lime);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .features-grid,
+            .solutions-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 3.5em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 30px;
+            }
+
+            .nav-content {
+                padding: 0 30px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2.5em;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2em;
+            }
+
+            .features-grid,
+            .solutions-grid,
+            .metrics-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        function App() {
+            const [currentPage, setCurrentPage] = useState('home');
+
+            const navigateTo = (page) => {
+                setCurrentPage(page);
+                window.scrollTo(0, 0);
+            };
+
+            return (
+                <div>
+                    <Navigation currentPage={currentPage} navigateTo={navigateTo} />
+                    {currentPage === 'home' && <HomePage navigateTo={navigateTo} />}
+                    {currentPage === 'solutions' && <SolutionsPage navigateTo={navigateTo} />}
+                    <Footer />
+                </div>
+            );
+        }
+
+        function Navigation({ currentPage, navigateTo }) {
+            return (
+                <nav>
+                    <div className="nav-content">
+                        <div className="nav-logo" onClick={() => navigateTo('home')}>
+                            <span className="nav-logo-text">Enerzjy</span>
+                        </div>
+                        <ul className="nav-links">
+                            <li><a onClick={() => navigateTo('home')} className={currentPage === 'home' ? 'active' : ''}>Home</a></li>
+                            <li><a onClick={() => navigateTo('solutions')} className={currentPage === 'solutions' ? 'active' : ''}>Solutions</a></li>
+                            <li><a onClick={() => navigateTo('home')}>ESG Reporting</a></li>
+                            <li><a onClick={() => navigateTo('home')}>Contact</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            );
+        }
+
+        function HomePage({ navigateTo }) {
+            return (
+                <div>
+                    <Hero navigateTo={navigateTo} />
+                    <Features />
+                    <ESGMetrics />
+                    <Contact />
+                    <CTASection />
+                </div>
+            );
+        }
+
+        function Hero({ navigateTo }) {
+            return (
+                <section className="hero">
+                    <div className="hero-content">
+                        <div className="hero-badge">ESG Solutions & Carbon Intelligence</div>
+                        <h1 className="hero-title">
+                            Empowering a<br />
+                            <span className="hero-title-highlight">Sustainable Future</span>
+                        </h1>
+                        <p className="hero-subtitle">
+                            Transform your energy systems with data-driven ESG compliance,
+                            carbon tracking, and sustainable energy solutions.
+                        </p>
+                        <div className="hero-buttons">
+                            <a className="btn btn-primary" onClick={() => navigateTo('solutions')}>Explore Solutions</a>
+                            <a className="btn btn-secondary">Schedule Consultation</a>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        function Features() {
+            const features = [
+                {
+                    title: "ESG Compliance & Reporting",
+                    desc: "Comprehensive environmental, social, and governance tracking with automated reporting for regulatory compliance and stakeholder transparency."
+                },
+                {
+                    title: "Carbon Footprint Analysis",
+                    desc: "Real-time carbon emission tracking across all energy sources. Measure, monitor, and reduce your environmental impact with actionable insights."
+                },
+                {
+                    title: "Renewable Energy Integration",
+                    desc: "Seamless integration with solar, wind, and hybrid systems. Partner with Solar Stitch for complete installation and optimization."
+                },
+                {
+                    title: "Energy Analytics & Insights",
+                    desc: "Advanced metering and analytics powered by Phy Engineering. Transform consumption data into cost savings and efficiency gains."
+                },
+                {
+                    title: "Circular Economy Solutions",
+                    desc: "Resource optimization, waste reduction, and lifecycle management strategies that turn sustainability into competitive advantage."
+                },
+                {
+                    title: "Net Zero Pathways",
+                    desc: "Strategic planning and implementation support to achieve your carbon neutrality goals with measurable milestones and ROI tracking."
+                }
+            ];
+
+            return (
+                <section className="features">
+                    <div className="container">
+                        <div className="section-header">
+                            <div className="section-badge">Our Solutions</div>
+                            <h2 className="section-title">Comprehensive ESG Solutions</h2>
+                            <p className="section-subtitle">
+                                End-to-end sustainability services that drive environmental impact and business value
+                            </p>
+                        </div>
+                        <div className="features-grid">
+                            {features.map((feature, index) => (
+                                <div className="feature-card" key={index}>
+                                    <h3 className="feature-title">{feature.title}</h3>
+                                    <p className="feature-desc">{feature.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        function ESGMetrics() {
+            const metrics = [
+                { value: "95%", label: "Carbon Reduction" },
+                { value: "24/7", label: "Real-Time Monitoring" }
+            ];
+
+            return (
+                <section className="esg-metrics">
+                    <div className="container">
+                        <div className="section-header">
+                            <div className="section-badge" style={{background: 'rgba(255,255,255,0.1)', color: 'var(--bright-lime)'}}>Impact Metrics</div>
+                            <h2 className="section-title">Measurable Sustainability Results</h2>
+                            <p className="section-subtitle">
+                                Track your environmental impact with precision analytics and comprehensive ESG reporting
+                            </p>
+                        </div>
+                        <div className="metrics-grid">
+                            {metrics.map((metric, index) => (
+                                <div className="metric-card" key={index}>
+                                    <div className="metric-value">{metric.value}</div>
+                                    <div className="metric-label">{metric.label}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        function Contact() {
+            const [formData, setFormData] = React.useState({
+                name: '',
+                email: '',
+                company: '',
+                message: ''
+            });
+            const [status, setStatus] = React.useState({ type: '', message: '' });
+            const [isSubmitting, setIsSubmitting] = React.useState(false);
+
+            const handleChange = (e) => {
+                setFormData({
+                    ...formData,
+                    [e.target.name]: e.target.value
+                });
+            };
+
+            const handleSubmit = async (e) => {
+                e.preventDefault();
+                setIsSubmitting(true);
+                setStatus({ type: '', message: '' });
+
+                try {
+                    const response = await fetch('https://formspree.io/f/xvgoewaq', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            ...formData,
+                            _replyto: formData.email,
+                            _subject: `New Enerzjy Contact from ${formData.name}`
+                        })
+                    });
+
+                    if (response.ok) {
+                        setStatus({
+                            type: 'success',
+                            message: 'Thank you! Your message has been sent successfully. We will get back to you soon.'
+                        });
+                        setFormData({ name: '', email: '', company: '', message: '' });
+                    } else {
+                        throw new Error('Failed to send message');
+                    }
+                } catch (error) {
+                    setStatus({
+                        type: 'error',
+                        message: 'Sorry, there was an error sending your message. Please try again or email us directly at admin@enerzjy.com'
+                    });
+                }
+
+                setIsSubmitting(false);
+            };
+
+            return (
+                <section className="contact-section">
+                    <div className="container">
+                        <div className="section-header">
+                            <div className="section-badge">Get In Touch</div>
+                            <h2 className="section-title">Contact Us</h2>
+                            <p className="section-subtitle">
+                                Ready to transform your sustainability strategy? Let's discuss your ESG goals.
+                            </p>
+                        </div>
+                        <div className="contact-grid">
+                            <div className="contact-info">
+                                <h3>Contact Information</h3>
+                                <div className="contact-item">
+                                    <div className="contact-label">Email</div>
+                                    <div className="contact-value">
+                                        <a href="mailto:admin@enerzjy.com">admin@enerzjy.com</a>
+                                    </div>
+                                </div>
+                                <div className="contact-item">
+                                    <div className="contact-label">Our Partners</div>
+                                    <div className="contact-value">
+                                        <a href="https://solarstitch.co.za" target="_blank" rel="noopener noreferrer">
+                                            Solar Stitch - Energy Solutions
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="contact-item">
+                                    <div className="contact-value">
+                                        <a href="https://phy.engineering" target="_blank" rel="noopener noreferrer">
+                                            Phy Engineering - Analytics Platform
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="contact-form">
+                                <h3>Send Us a Message</h3>
+                                <form onSubmit={handleSubmit}>
+                                    <div className="form-group">
+                                        <label htmlFor="name">Name *</label>
+                                        <input
+                                            type="text"
+                                            id="name"
+                                            name="name"
+                                            value={formData.name}
+                                            onChange={handleChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="email">Email *</label>
+                                        <input
+                                            type="email"
+                                            id="email"
+                                            name="email"
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="company">Company</label>
+                                        <input
+                                            type="text"
+                                            id="company"
+                                            name="company"
+                                            value={formData.company}
+                                            onChange={handleChange}
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="message">Message *</label>
+                                        <textarea
+                                            id="message"
+                                            name="message"
+                                            value={formData.message}
+                                            onChange={handleChange}
+                                            required
+                                        ></textarea>
+                                    </div>
+                                    <button
+                                        type="submit"
+                                        className="btn btn-primary"
+                                        disabled={isSubmitting}
+                                        style={{width: '100%', cursor: isSubmitting ? 'not-allowed' : 'pointer'}}
+                                    >
+                                        {isSubmitting ? 'Sending...' : 'Send Message'}
+                                    </button>
+                                    {status.message && (
+                                        <div className={`form-status ${status.type}`}>
+                                            {status.message}
+                                        </div>
+                                    )}
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        function SolutionsPage({ navigateTo }) {
+            const solutions = [
+                {
+                    number: "01",
+                    title: "ESG Compliance & Carbon Tracking",
+                    desc: "Complete environmental compliance suite with automated carbon footprint analysis, sustainability metrics, and regulatory reporting. Track Scope 1, 2, and 3 emissions across your entire operation.",
+                    features: [
+                        "Real-time carbon emission monitoring",
+                        "Automated ESG report generation",
+                        "ISO 14001 & GRI standards compliance",
+                        "Stakeholder transparency dashboards",
+                        "Carbon offset strategy planning",
+                        "Sustainability KPI tracking"
+                    ]
+                },
+                {
+                    number: "02",
+                    title: "Renewable Energy Systems",
+                    desc: "Solar and hybrid energy solutions through our partnership with Solar Stitch. Professional installation, maintenance, and optimization using Victron and SolarMD systems.",
+                    features: [
+                        "Grid-tied & off-grid solar installations",
+                        "Battery storage integration",
+                        "Energy consumption optimization",
+                        "Remote monitoring & analytics",
+                        "ROI calculation & reporting",
+                        "Phy Engineering metering integration"
+                    ]
+                },
+                {
+                    number: "03",
+                    title: "Energy Analytics & Optimization",
+                    desc: "Powered by Phy Engineering's advanced metering infrastructure. Transform energy data into actionable insights with automated meter reading, consumption analytics, and efficiency recommendations.",
+                    features: [
+                        "High-resolution consumption data",
+                        "Energy efficiency audits",
+                        "Peak demand management",
+                        "Cost allocation & billing",
+                        "Predictive maintenance alerts",
+                        "Monthly sustainability reports"
+                    ]
+                },
+                {
+                    number: "04",
+                    title: "Circular Economy Consulting",
+                    desc: "Strategic guidance on resource optimization, waste reduction, and circular business models. Turn sustainability initiatives into competitive advantages and cost savings.",
+                    features: [
+                        "Waste stream analysis & reduction",
+                        "Resource lifecycle management",
+                        "Circular supply chain design",
+                        "Material recovery strategies",
+                        "Sustainability roadmap development",
+                        "Stakeholder engagement programs"
+                    ]
+                }
+            ];
+
+            return (
+                <div>
+                    <div style={{
+                        padding: '180px 60px 100px',
+                        background: 'linear-gradient(135deg, var(--ocean-blue), var(--charcoal))',
+                        textAlign: 'center'
+                    }}>
+                        <div className="section-badge" style={{background: 'rgba(255,255,255,0.1)', color: 'var(--bright-lime)'}}>
+                            What We Offer
+                        </div>
+                        <h1 style={{fontSize: '3em', color: 'var(--clean-white)', margin: '20px 0', fontWeight: 700}}>
+                            Sustainability Solutions
+                        </h1>
+                        <p style={{fontSize: '1.2em', color: 'rgba(255,255,255,0.8)', maxWidth: '700px', margin: '0 auto'}}>
+                            Comprehensive ESG services that drive environmental responsibility and business performance
+                        </p>
+                    </div>
+
+                    <section style={{padding: '100px 60px', background: 'var(--clean-white)'}}>
+                        <div className="container">
+                            <div className="solutions-grid">
+                                {solutions.map((solution, index) => (
+                                    <div className="solution-card" key={index}>
+                                        <div className="solution-number">SOLUTION {solution.number}</div>
+                                        <h3 className="solution-title">{solution.title}</h3>
+                                        <p className="solution-desc">{solution.desc}</p>
+                                        <ul className="solution-features">
+                                            {solution.features.map((feature, i) => (
+                                                <li key={i}>{feature}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    <CTASection />
+                </div>
+            );
+        }
+
+        function CTASection() {
+            return (
+                <section className="cta-section">
+                    <div className="container">
+                        <h2>Ready to Build a Sustainable Future?</h2>
+                        <p>Let's discuss how we can help you achieve your ESG goals and carbon reduction targets.</p>
+                        <div style={{display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap'}}>
+                            <a className="btn" style={{background: 'var(--clean-white)', color: 'var(--earth-green)'}}>
+                                Schedule Consultation
+                            </a>
+                            <a className="btn btn-secondary">Download ESG Guide</a>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        function Footer() {
+            return (
+                <footer>
+                    <p style={{fontSize: '1.5em', fontWeight: 700, color: 'var(--vibrant-green)', marginBottom: '10px'}}>
+                        Enerzjy
+                    </p>
+                    <p style={{fontSize: '1em', marginBottom: '20px', opacity: 0.8}}>
+                        Empowering a Sustainable Future
+                    </p>
+                    <p>
+                        Energy solutions by <a href="https://solarstitch.co.za" target="_blank" rel="noopener noreferrer">Solar Stitch</a>
+                    </p>
+                    <p>
+                        Analytics powered by <a href="https://phy.engineering" target="_blank" rel="noopener noreferrer">Phy Engineering</a>
+                    </p>
+                    <p style={{marginTop: '30px', fontSize: '0.9em'}}>
+                        © 2025 Enerzjy. All rights reserved.
+                    </p>
+                </footer>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
