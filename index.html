@@ -59,8 +59,14 @@
         .nav-logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
             cursor: pointer;
+        }
+
+        .nav-logo-img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
         }
 
         .nav-logo-text {
@@ -114,6 +120,17 @@
             padding-top: 80px;
         }
 
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
         .hero::before {
             content: '';
             position: absolute;
@@ -124,6 +141,7 @@
             background:
                 radial-gradient(circle at 20% 50%, rgba(46, 204, 113, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(168, 224, 99, 0.1) 0%, transparent 50%);
+            z-index: 1;
         }
 
         .hero-content {
@@ -131,7 +149,7 @@
             margin: 0 auto;
             padding: 0 60px;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         .hero-badge {
@@ -666,6 +684,7 @@
                 <nav>
                     <div className="nav-content">
                         <div className="nav-logo" onClick={() => navigateTo('home')}>
+                            <img src="logo.jpeg" alt="Enerzjy Logo" className="nav-logo-img" />
                             <span className="nav-logo-text">Enerzjy</span>
                         </div>
                         <ul className="nav-links">
@@ -694,6 +713,9 @@
         function Hero({ navigateTo }) {
             return (
                 <section className="hero">
+                    <video autoPlay loop muted playsInline className="hero-video">
+                        <source src="hero-video.mp4" type="video/mp4" />
+                    </video>
                     <div className="hero-content">
                         <div className="hero-badge">ESG Solutions & Carbon Intelligence</div>
                         <h1 className="hero-title">
