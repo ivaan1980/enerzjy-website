@@ -15,21 +15,21 @@
         }
 
         :root {
-            --ocean-blue: #1E3A5F;
-            --vibrant-green: #2ECC71;
-            --earth-green: #27AE60;
-            --warm-copper: #C67C3B;
+            --primary-purple: #9B4D7A;
+            --deep-purple: #7A3D62;
+            --light-purple: #C77BA8;
+            --black: #1A1A1A;
+            --dark-gray: #333333;
+            --mid-gray: #666666;
+            --light-gray: #CCCCCC;
             --clean-white: #FFFFFF;
-            --charcoal: #2C3E50;
-            --bright-lime: #A8E063;
-            --sky-blue: #56CCF2;
-            --light-green: #E8F5E9;
             --off-white: #F8F9FA;
+            --lighter-bg: #FFF5FA;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', sans-serif;
-            color: var(--charcoal);
+            font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Arial', sans-serif;
+            color: var(--dark-gray);
             background: var(--clean-white);
             line-height: 1.6;
             overflow-x: hidden;
@@ -43,7 +43,7 @@
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(46, 204, 113, 0.2);
+            border-bottom: 1px solid rgba(155, 77, 122, 0.15);
             padding: 20px 0;
         }
 
@@ -70,16 +70,17 @@
         }
 
         .nav-logo-text {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: var(--warm-copper);
-            letter-spacing: 2px;
+            font-size: 1.6em;
+            font-weight: 800;
+            color: var(--black);
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
         .nav-logo-icon {
             width: 35px;
             height: 35px;
-            background: linear-gradient(135deg, var(--vibrant-green), var(--earth-green));
+            background: linear-gradient(135deg, var(--primary-purple), var(--deep-purple));
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -96,17 +97,18 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--ocean-blue);
-            font-size: 0.9em;
-            font-weight: 500;
-            letter-spacing: 1px;
+            color: var(--dark-gray);
+            font-size: 0.85em;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
             transition: color 0.3s;
             cursor: pointer;
         }
 
         .nav-links a:hover,
         .nav-links a.active {
-            color: var(--vibrant-green);
+            color: var(--primary-purple);
         }
 
         /* Hero Section */
@@ -114,7 +116,7 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--charcoal) 100%);
+            background: linear-gradient(135deg, var(--deep-purple) 0%, var(--black) 100%);
             position: relative;
             overflow: hidden;
             padding-top: 80px;
@@ -139,8 +141,8 @@
             right: 0;
             bottom: 0;
             background:
-                radial-gradient(circle at 20% 50%, rgba(46, 204, 113, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(168, 224, 99, 0.1) 0%, transparent 50%);
+                radial-gradient(circle at 20% 50%, rgba(155, 77, 122, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(199, 123, 168, 0.15) 0%, transparent 50%);
             z-index: 1;
         }
 
@@ -154,8 +156,8 @@
 
         .hero-badge {
             display: inline-block;
-            background: rgba(46, 204, 113, 0.2);
-            color: var(--bright-lime);
+            background: rgba(155, 77, 122, 0.3);
+            color: var(--light-purple);
             padding: 10px 25px;
             border-radius: 30px;
             font-size: 0.85em;
@@ -168,14 +170,15 @@
         .hero-title {
             font-size: 4.5em;
             color: var(--clean-white);
-            font-weight: 700;
+            font-weight: 800;
             line-height: 1.2;
             margin-bottom: 30px;
-            letter-spacing: -1px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .hero-title-highlight {
-            background: linear-gradient(135deg, var(--vibrant-green), var(--bright-lime));
+            background: linear-gradient(135deg, var(--primary-purple), var(--light-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -209,7 +212,7 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--vibrant-green), var(--earth-green));
+            background: linear-gradient(135deg, var(--primary-purple), var(--deep-purple));
             color: var(--clean-white);
             border: none;
         }
@@ -243,7 +246,7 @@
         .section-badge {
             display: inline-block;
             background: var(--light-green);
-            color: var(--earth-green);
+            color: var(--deep-purple);
             padding: 8px 20px;
             border-radius: 20px;
             font-size: 0.8em;
@@ -255,7 +258,7 @@
 
         .section-title {
             font-size: 3em;
-            color: var(--ocean-blue);
+            color: var(--black);
             font-weight: 700;
             margin-bottom: 20px;
             letter-spacing: -1px;
@@ -263,7 +266,7 @@
 
         .section-subtitle {
             font-size: 1.2em;
-            color: var(--charcoal);
+            color: var(--dark-gray);
             max-width: 700px;
             margin: 0 auto;
             line-height: 1.8;
@@ -297,13 +300,13 @@
         .feature-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(46, 204, 113, 0.15);
-            border-color: var(--vibrant-green);
+            border-color: var(--primary-purple);
         }
 
         .feature-icon {
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, var(--vibrant-green), var(--earth-green));
+            background: linear-gradient(135deg, var(--primary-purple), var(--deep-purple));
             border-radius: 16px;
             display: flex;
             align-items: center;
@@ -314,20 +317,20 @@
 
         .feature-title {
             font-size: 1.4em;
-            color: var(--ocean-blue);
+            color: var(--black);
             font-weight: 600;
             margin-bottom: 15px;
         }
 
         .feature-desc {
-            color: var(--charcoal);
+            color: var(--dark-gray);
             line-height: 1.8;
             opacity: 0.8;
         }
 
         /* ESG Metrics */
         .esg-metrics {
-            background: var(--ocean-blue);
+            background: var(--black);
             color: var(--clean-white);
         }
 
@@ -360,7 +363,7 @@
         .metric-value {
             font-size: 3em;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--vibrant-green), var(--bright-lime));
+            background: linear-gradient(135deg, var(--primary-purple), var(--light-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -384,12 +387,12 @@
             background: linear-gradient(135deg, var(--light-green) 0%, var(--clean-white) 100%);
             padding: 50px;
             border-radius: 20px;
-            border-left: 5px solid var(--vibrant-green);
+            border-left: 5px solid var(--primary-purple);
         }
 
         .solution-number {
             font-size: 0.9em;
-            color: var(--earth-green);
+            color: var(--deep-purple);
             font-weight: 700;
             letter-spacing: 2px;
             margin-bottom: 15px;
@@ -397,13 +400,13 @@
 
         .solution-title {
             font-size: 1.8em;
-            color: var(--ocean-blue);
+            color: var(--black);
             font-weight: 700;
             margin-bottom: 20px;
         }
 
         .solution-desc {
-            color: var(--charcoal);
+            color: var(--dark-gray);
             line-height: 1.9;
             margin-bottom: 25px;
             opacity: 0.9;
@@ -417,7 +420,7 @@
             padding: 12px 0;
             padding-left: 30px;
             position: relative;
-            color: var(--charcoal);
+            color: var(--dark-gray);
             opacity: 0.8;
         }
 
@@ -425,14 +428,14 @@
             content: '✓';
             position: absolute;
             left: 0;
-            color: var(--vibrant-green);
+            color: var(--primary-purple);
             font-weight: bold;
             font-size: 1.2em;
         }
 
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, var(--vibrant-green), var(--earth-green));
+            background: linear-gradient(135deg, var(--primary-purple), var(--deep-purple));
             color: var(--clean-white);
             text-align: center;
             padding: 80px 60px;
@@ -474,7 +477,7 @@
 
         .contact-info h3 {
             font-size: 1.8em;
-            color: var(--ocean-blue);
+            color: var(--black);
             margin-bottom: 30px;
             font-weight: 600;
         }
@@ -485,7 +488,7 @@
 
         .contact-label {
             font-size: 0.85em;
-            color: var(--earth-green);
+            color: var(--deep-purple);
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -494,17 +497,17 @@
 
         .contact-value {
             font-size: 1.1em;
-            color: var(--charcoal);
+            color: var(--dark-gray);
         }
 
         .contact-value a {
-            color: var(--ocean-blue);
+            color: var(--black);
             text-decoration: none;
             transition: color 0.3s;
         }
 
         .contact-value a:hover {
-            color: var(--vibrant-green);
+            color: var(--primary-purple);
         }
 
         .contact-form {
@@ -516,7 +519,7 @@
 
         .contact-form h3 {
             font-size: 1.8em;
-            color: var(--ocean-blue);
+            color: var(--black);
             margin-bottom: 30px;
             font-weight: 600;
         }
@@ -528,7 +531,7 @@
         .form-group label {
             display: block;
             font-size: 0.85em;
-            color: var(--earth-green);
+            color: var(--deep-purple);
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -549,7 +552,7 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--vibrant-green);
+            border-color: var(--primary-purple);
         }
 
         .form-group textarea {
@@ -567,7 +570,7 @@
 
         .form-status.success {
             background: var(--light-green);
-            color: var(--earth-green);
+            color: var(--deep-purple);
         }
 
         .form-status.error {
@@ -577,7 +580,7 @@
 
         /* Footer */
         footer {
-            background: var(--charcoal);
+            background: var(--dark-gray);
             color: rgba(255, 255, 255, 0.7);
             padding: 60px;
             text-align: center;
@@ -588,12 +591,12 @@
         }
 
         footer a {
-            color: var(--vibrant-green);
+            color: var(--primary-purple);
             text-decoration: none;
         }
 
         footer a:hover {
-            color: var(--bright-lime);
+            color: var(--light-purple);
         }
 
         /* Responsive */
@@ -684,7 +687,7 @@
                 <nav>
                     <div className="nav-content">
                         <div className="nav-logo" onClick={() => navigateTo('home')}>
-                            <img src="logo.jpeg" alt="Enerzjy Logo" className="nav-logo-img" />
+                            <img src="logo-new.png" alt="Enerzjy Logo" className="nav-logo-img" />
                             <span className="nav-logo-text">Enerzjy</span>
                         </div>
                         <ul className="nav-links">
@@ -717,10 +720,9 @@
                         <source src="hero-video.mp4" type="video/mp4" />
                     </video>
                     <div className="hero-content">
-                        <div className="hero-badge">ESG Solutions & Carbon Intelligence</div>
+                        <div className="hero-badge">Sustainability, Simplified</div>
                         <h1 className="hero-title">
-                            Empowering a<br />
-                            <span className="hero-title-highlight">Sustainable Future</span>
+                            <span className="hero-title-highlight">Enerzjy</span>
                         </h1>
                         <p className="hero-subtitle">
                             Transform your energy systems with data-driven ESG compliance,
@@ -796,7 +798,7 @@
                 <section className="esg-metrics">
                     <div className="container">
                         <div className="section-header">
-                            <div className="section-badge" style={{background: 'rgba(255,255,255,0.1)', color: 'var(--bright-lime)'}}>Impact Metrics</div>
+                            <div className="section-badge" style={{background: 'rgba(255,255,255,0.1)', color: 'var(--light-purple)'}}>Impact Metrics</div>
                             <h2 className="section-title">Measurable Sustainability Results</h2>
                             <p className="section-subtitle">
                                 Track your environmental impact with precision analytics and comprehensive ESG reporting
@@ -1031,10 +1033,10 @@
                 <div>
                     <div style={{
                         padding: '180px 60px 100px',
-                        background: 'linear-gradient(135deg, var(--ocean-blue), var(--charcoal))',
+                        background: 'linear-gradient(135deg, var(--black), var(--dark-gray))',
                         textAlign: 'center'
                     }}>
-                        <div className="section-badge" style={{background: 'rgba(255,255,255,0.1)', color: 'var(--bright-lime)'}}>
+                        <div className="section-badge" style={{background: 'rgba(255,255,255,0.1)', color: 'var(--light-purple)'}}>
                             What We Offer
                         </div>
                         <h1 style={{fontSize: '3em', color: 'var(--clean-white)', margin: '20px 0', fontWeight: 700}}>
@@ -1076,7 +1078,7 @@
                         <h2>Ready to Build a Sustainable Future?</h2>
                         <p>Let's discuss how we can help you achieve your ESG goals and carbon reduction targets.</p>
                         <div style={{display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap'}}>
-                            <a className="btn" style={{background: 'var(--clean-white)', color: 'var(--earth-green)'}}>
+                            <a className="btn" style={{background: 'var(--clean-white)', color: 'var(--deep-purple)'}}>
                                 Schedule Consultation
                             </a>
                             <a className="btn btn-secondary">Download ESG Guide</a>
@@ -1089,11 +1091,11 @@
         function Footer() {
             return (
                 <footer>
-                    <p style={{fontSize: '1.5em', fontWeight: 700, color: 'var(--vibrant-green)', marginBottom: '10px'}}>
+                    <p style={{fontSize: '1.5em', fontWeight: 700, color: 'var(--primary-purple)', marginBottom: '10px'}}>
                         Enerzjy
                     </p>
                     <p style={{fontSize: '1em', marginBottom: '20px', opacity: 0.8}}>
-                        Empowering a Sustainable Future
+                        Sustainability, Simplified
                     </p>
                     <p>
                         Energy solutions by <a href="https://solarstitch.co.za" target="_blank" rel="noopener noreferrer">Solar Stitch</a>
