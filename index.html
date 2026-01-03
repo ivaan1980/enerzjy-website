@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enerzjy | Empowering a Sustainable Future</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -28,7 +31,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Arial', sans-serif;
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', sans-serif;
             color: var(--dark-gray);
             background: var(--clean-white);
             line-height: 1.6;
@@ -44,7 +47,7 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid rgba(155, 77, 122, 0.15);
-            padding: 25px 0;
+            padding: 15px 0;
         }
 
         .nav-content {
@@ -64,16 +67,17 @@
         }
 
         .nav-logo-img {
-            width: 60px;
-            height: 60px;
+            width: 100px;
+            height: 100px;
             object-fit: contain;
         }
 
         .nav-logo-text {
-            font-size: 2em;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2em;
             font-weight: 800;
             color: var(--black);
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             text-transform: uppercase;
         }
 
@@ -687,7 +691,7 @@
                 <nav>
                     <div className="nav-content">
                         <div className="nav-logo" onClick={() => navigateTo('home')}>
-                            <img src="logo-new.png" alt="Enerzjy Logo" className="nav-logo-img" />
+                            <img src="logo-sunburst.png" alt="Enerzjy Logo" className="nav-logo-img" />
                             <span className="nav-logo-text">Enerzjy</span>
                         </div>
                         <ul className="nav-links">
