@@ -697,6 +697,7 @@
                     <Navigation currentPage={currentPage} navigateTo={navigateTo} />
                     {currentPage === 'home' && <HomePage navigateTo={navigateTo} />}
                     {currentPage === 'solutions' && <SolutionsPage navigateTo={navigateTo} />}
+                    {currentPage === 'contact' && <Contact />}
                     <Footer />
                 </div>
             );
@@ -717,7 +718,7 @@
                             <li><a onClick={() => navigateTo('home')} className={currentPage === 'home' ? 'active' : ''}>Home</a></li>
                             <li><a onClick={() => navigateTo('solutions')} className={currentPage === 'solutions' ? 'active' : ''}>Solutions</a></li>
                             <li><a onClick={() => navigateTo('home')}>ESG Reporting</a></li>
-                            <li><a onClick={() => navigateTo('home')}>Contact</a></li>
+                            <li><a onClick={() => navigateTo('contact')} className={currentPage === 'contact' ? 'active' : ''}>Contact</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -730,8 +731,7 @@
                     <Hero navigateTo={navigateTo} />
                     <Features />
                     <ESGMetrics />
-                    <Contact />
-                    <CTASection />
+                    <CTASection navigateTo={navigateTo} />
                 </div>
             );
         }
@@ -750,7 +750,7 @@
                         </p>
                         <div className="hero-buttons">
                             <a className="btn btn-primary" onClick={() => navigateTo('solutions')}>Explore Solutions</a>
-                            <a className="btn btn-secondary">Schedule Consultation</a>
+                            <a className="btn btn-secondary" onClick={() => navigateTo('contact')}>Schedule Consultation</a>
                         </div>
                     </div>
                 </section>
@@ -1086,19 +1086,19 @@
                         </div>
                     </section>
 
-                    <CTASection />
+                    <CTASection navigateTo={navigateTo} />
                 </div>
             );
         }
 
-        function CTASection() {
+        function CTASection({ navigateTo }) {
             return (
                 <section className="cta-section">
                     <div className="container">
                         <h2>Ready to Build a Sustainable Future?</h2>
                         <p>Let's discuss how we can help you achieve your ESG goals and carbon reduction targets.</p>
                         <div style={{display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap'}}>
-                            <a className="btn" style={{background: 'var(--clean-white)', color: 'var(--deep-purple)'}}>
+                            <a className="btn" style={{background: 'var(--clean-white)', color: 'var(--deep-purple)', cursor: 'pointer'}} onClick={() => navigateTo('contact')}>
                                 Schedule Consultation
                             </a>
                             <a className="btn btn-secondary">Download ESG Guide</a>
