@@ -36,6 +36,13 @@
             background: var(--clean-white);
             line-height: 1.6;
             overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        html {
+            overflow-x: hidden;
+            width: 100%;
         }
 
         /* Navigation */
@@ -64,8 +71,9 @@
             align-items: center;
             gap: 20px;
             cursor: pointer;
-            flex: 1;
+            flex: 0 1 auto;
             min-width: 0;
+            max-width: 100%;
         }
 
         .nav-logo-img {
@@ -73,6 +81,7 @@
             height: 100px;
             object-fit: contain;
             flex-shrink: 0;
+            transition: width 0.3s ease, height 0.3s ease;
         }
 
         .nav-logo-content {
@@ -83,6 +92,7 @@
             height: 100px;
             min-width: 0;
             overflow: hidden;
+            flex: 1 1 auto;
         }
 
         .nav-logo-text {
@@ -94,6 +104,9 @@
             text-transform: uppercase;
             line-height: 1;
             white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: font-size 0.3s ease, letter-spacing 0.3s ease;
         }
 
         .nav-logo-tagline {
@@ -104,6 +117,9 @@
             letter-spacing: 4px;
             text-transform: uppercase;
             white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: font-size 0.3s ease, letter-spacing 0.3s ease;
         }
 
         .nav-logo-icon {
@@ -122,6 +138,7 @@
             display: flex;
             gap: 45px;
             list-style: none;
+            flex-shrink: 0;
         }
 
         .nav-links a {
@@ -713,31 +730,104 @@
         }
 
         /* Responsive */
+        @media (max-width: 1200px) {
+            .nav-content {
+                padding: 0 40px;
+            }
+
+            .hero-content,
+            section {
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+
+            .hero-title {
+                font-size: 4em;
+            }
+
+            .section-title {
+                font-size: 2.5em;
+            }
+        }
+
         @media (max-width: 1024px) {
             .features-grid,
             .solutions-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
             }
 
             .metrics-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
             }
 
             .contact-grid {
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             .hero-title {
                 font-size: 3.5em;
             }
 
+            .hero-subtitle {
+                font-size: 1.3em;
+            }
+
+            .nav-content {
+                padding: 0 30px;
+            }
+
             .nav-logo-text {
-                font-size: 2.5em;
+                font-size: 2.8em;
+                letter-spacing: 6px;
+            }
+
+            .nav-logo-tagline {
+                font-size: 0.85em;
+                letter-spacing: 3px;
             }
 
             .nav-logo-img {
-                width: 70px;
-                height: 70px;
+                width: 80px;
+                height: 80px;
+            }
+
+            .nav-links {
+                gap: 30px;
+            }
+
+            .nav-links a {
+                font-size: 0.8em;
+            }
+
+            section {
+                padding: 80px 30px;
+            }
+
+            .hero-content {
+                padding: 0 30px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .nav-links {
+                gap: 20px;
+            }
+
+            .nav-links a {
+                font-size: 0.75em;
+            }
+
+            .nav-logo-text {
+                font-size: 2.3em;
+                letter-spacing: 4px;
+            }
+
+            .nav-logo-tagline {
+                font-size: 0.8em;
+                letter-spacing: 2px;
             }
         }
 
@@ -932,6 +1022,30 @@
 
             .solutions-hero p {
                 font-size: 1em !important;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .solutions-hero {
+                padding: 160px 30px 80px !important;
+            }
+
+            .solutions-hero h1 {
+                font-size: 2.5em !important;
+            }
+
+            .solutions-hero p {
+                font-size: 1.1em !important;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .solutions-hero {
+                padding: 150px 25px 70px !important;
+            }
+
+            .solutions-hero h1 {
+                font-size: 2em !important;
             }
         }
 
