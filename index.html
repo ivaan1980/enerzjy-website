@@ -64,12 +64,15 @@
             align-items: center;
             gap: 20px;
             cursor: pointer;
+            flex: 1;
+            min-width: 0;
         }
 
         .nav-logo-img {
             width: 100px;
             height: 100px;
             object-fit: contain;
+            flex-shrink: 0;
         }
 
         .nav-logo-content {
@@ -78,6 +81,8 @@
             gap: 8px;
             justify-content: center;
             height: 100px;
+            min-width: 0;
+            overflow: hidden;
         }
 
         .nav-logo-text {
@@ -88,6 +93,7 @@
             letter-spacing: 8px;
             text-transform: uppercase;
             line-height: 1;
+            white-space: nowrap;
         }
 
         .nav-logo-tagline {
@@ -97,6 +103,7 @@
             color: var(--mid-gray);
             letter-spacing: 4px;
             text-transform: uppercase;
+            white-space: nowrap;
         }
 
         .nav-logo-icon {
@@ -130,6 +137,90 @@
 
         .nav-links a:hover,
         .nav-links a.active {
+            color: var(--primary-purple);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            min-width: 44px;
+            min-height: 44px;
+            z-index: 1001;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .mobile-menu-toggle span {
+            width: 24px;
+            height: 3px;
+            background: var(--primary-purple);
+            border-radius: 2px;
+            transition: all 0.3s;
+            display: block;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 130px;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(155, 77, 122, 0.15);
+            z-index: 999;
+            padding: 20px 30px;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-nav ul li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(155, 77, 122, 0.1);
+        }
+
+        .mobile-nav ul li:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-size: 0.9em;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .mobile-nav ul li a.active {
             color: var(--primary-purple);
         }
 
@@ -639,27 +730,106 @@
             .hero-title {
                 font-size: 3.5em;
             }
+
+            .nav-logo-text {
+                font-size: 2.5em;
+            }
+
+            .nav-logo-img {
+                width: 70px;
+                height: 70px;
+            }
         }
 
         @media (max-width: 768px) {
             section {
-                padding: 60px 30px;
+                padding: 60px 20px;
+            }
+
+            nav {
+                padding: 10px 0;
             }
 
             .nav-content {
-                padding: 0 30px;
+                padding: 0 15px;
+                gap: 10px;
             }
 
             .nav-links {
                 display: none;
             }
 
+            .mobile-menu-toggle {
+                display: flex;
+                flex-shrink: 0;
+            }
+
+            .nav-logo {
+                gap: 10px;
+                flex: 1;
+                min-width: 0;
+            }
+
+            .nav-logo-img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .nav-logo-content {
+                gap: 2px;
+                height: auto;
+                min-width: 0;
+                max-width: calc(100vw - 130px);
+            }
+
+            .nav-logo-text {
+                font-size: 0.85em;
+                letter-spacing: 0px;
+            }
+
+            .nav-logo-tagline {
+                font-size: 0.45em;
+                letter-spacing: 0.5px;
+            }
+
+            .mobile-nav {
+                top: 80px;
+            }
+
+            .hero {
+                padding-top: 140px;
+            }
+
+            .hero-content {
+                padding: 0 20px;
+            }
+
+            .hero-badge {
+                font-size: 0.7em;
+                padding: 8px 18px;
+                margin-bottom: 20px;
+            }
+
             .hero-title {
                 font-size: 2.5em;
+                margin-bottom: 20px;
             }
 
             .hero-subtitle {
-                font-size: 1.2em;
+                font-size: 1em;
+                margin-bottom: 30px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn {
+                padding: 15px 30px;
+                font-size: 0.9em;
+                text-align: center;
+                width: 100%;
             }
 
             .features-grid,
@@ -667,15 +837,206 @@
             .metrics-grid,
             .contact-grid {
                 grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .section-header {
+                margin-bottom: 40px;
+            }
+
+            .section-badge {
+                font-size: 0.7em;
+                padding: 6px 16px;
             }
 
             .section-title {
-                font-size: 2em;
+                font-size: 1.8em;
+                margin-bottom: 15px;
+            }
+
+            .section-subtitle {
+                font-size: 1em;
+            }
+
+            .feature-card {
+                padding: 30px 25px;
+            }
+
+            .feature-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5em;
+                margin-bottom: 20px;
+            }
+
+            .feature-title {
+                font-size: 1.2em;
+            }
+
+            .solution-card {
+                padding: 30px 25px;
+            }
+
+            .solution-title {
+                font-size: 1.4em;
+            }
+
+            .metric-card {
+                padding: 30px 20px;
+            }
+
+            .metric-value {
+                font-size: 2.5em;
+            }
+
+            .cta-section {
+                padding: 60px 20px;
+            }
+
+            .cta-section h2 {
+                font-size: 1.8em;
+                margin-bottom: 15px;
+            }
+
+            .cta-section p {
+                font-size: 1em;
+                margin-bottom: 30px;
+            }
+
+            .contact-section {
+                padding: 60px 20px;
             }
 
             .contact-info,
             .contact-form {
-                padding: 30px;
+                padding: 25px 20px;
+            }
+
+            .contact-info h3,
+            .contact-form h3 {
+                font-size: 1.4em;
+                margin-bottom: 20px;
+            }
+
+            footer {
+                padding: 40px 20px;
+            }
+
+            .solutions-hero {
+                padding: 140px 20px 60px !important;
+            }
+
+            .solutions-hero h1 {
+                font-size: 1.8em !important;
+            }
+
+            .solutions-hero p {
+                font-size: 1em !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-content {
+                padding: 0 12px;
+            }
+
+            .nav-logo {
+                gap: 8px;
+            }
+
+            .nav-logo-img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .nav-logo-content {
+                max-width: calc(100vw - 100px);
+            }
+
+            .nav-logo-text {
+                font-size: 0.75em;
+                letter-spacing: 0px;
+            }
+
+            .nav-logo-tagline {
+                font-size: 0.38em;
+                letter-spacing: 0px;
+            }
+
+            .mobile-nav {
+                top: 65px;
+            }
+
+            .mobile-menu-toggle {
+                padding: 6px;
+            }
+
+            .mobile-menu-toggle span {
+                width: 22px;
+                height: 2px;
+            }
+
+            .hero {
+                padding-top: 100px;
+            }
+
+            .hero-title {
+                font-size: 2em;
+            }
+
+            .hero-subtitle {
+                font-size: 0.9em;
+            }
+
+            .section-title {
+                font-size: 1.5em;
+            }
+
+            .metric-value {
+                font-size: 2em;
+            }
+
+            .cta-section h2 {
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 390px) {
+            .nav-content {
+                padding: 0 8px;
+            }
+
+            .nav-logo {
+                gap: 6px;
+            }
+
+            .nav-logo-img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .nav-logo-content {
+                max-width: calc(100vw - 90px);
+            }
+
+            .nav-logo-text {
+                font-size: 0.7em;
+                letter-spacing: 0px;
+            }
+
+            .nav-logo-tagline {
+                font-size: 0.35em;
+                letter-spacing: 0px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .nav-logo-text {
+                font-size: 0.65em;
+            }
+
+            .nav-logo-content {
+                max-width: calc(100vw - 85px);
             }
         }
     </style>
@@ -706,24 +1067,50 @@
         }
 
         function Navigation({ currentPage, navigateTo }) {
+            const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+            const handleNavClick = (page) => {
+                navigateTo(page);
+                setMobileMenuOpen(false);
+            };
+
             return (
-                <nav>
-                    <div className="nav-content">
-                        <div className="nav-logo" onClick={() => navigateTo('home')}>
-                            <img src="logo-icon-only.png" alt="Enerzjy Logo" className="nav-logo-img" />
-                            <div className="nav-logo-content">
-                                <span className="nav-logo-text">Enerzjy</span>
-                                <span className="nav-logo-tagline">Sustainability, Simplified</span>
+                <>
+                    <nav>
+                        <div className="nav-content">
+                            <div className="nav-logo" onClick={() => handleNavClick('home')}>
+                                <img src="logo-icon-only.png" alt="Enerzjy Logo" className="nav-logo-img" />
+                                <div className="nav-logo-content">
+                                    <span className="nav-logo-text">Enerzjy</span>
+                                    <span className="nav-logo-tagline">Sustainability, Simplified</span>
+                                </div>
                             </div>
+                            <ul className="nav-links">
+                                <li><a onClick={() => navigateTo('home')} className={currentPage === 'home' ? 'active' : ''}>Home</a></li>
+                                <li><a onClick={() => navigateTo('solutions')} className={currentPage === 'solutions' ? 'active' : ''}>Solutions</a></li>
+                                <li><a onClick={() => navigateTo('home')}>ESG Reporting</a></li>
+                                <li><a onClick={() => navigateTo('contact')} className={currentPage === 'contact' ? 'active' : ''}>Contact</a></li>
+                            </ul>
+                            <button
+                                className={`mobile-menu-toggle ${mobileMenuOpen ? 'active' : ''}`}
+                                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                                aria-label="Toggle menu"
+                            >
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
                         </div>
-                        <ul className="nav-links">
-                            <li><a onClick={() => navigateTo('home')} className={currentPage === 'home' ? 'active' : ''}>Home</a></li>
-                            <li><a onClick={() => navigateTo('solutions')} className={currentPage === 'solutions' ? 'active' : ''}>Solutions</a></li>
-                            <li><a onClick={() => navigateTo('home')}>ESG Reporting</a></li>
-                            <li><a onClick={() => navigateTo('contact')} className={currentPage === 'contact' ? 'active' : ''}>Contact</a></li>
+                    </nav>
+                    <div className={`mobile-nav ${mobileMenuOpen ? 'active' : ''}`}>
+                        <ul>
+                            <li><a onClick={() => handleNavClick('home')} className={currentPage === 'home' ? 'active' : ''}>Home</a></li>
+                            <li><a onClick={() => handleNavClick('solutions')} className={currentPage === 'solutions' ? 'active' : ''}>Solutions</a></li>
+                            <li><a onClick={() => handleNavClick('home')}>ESG Reporting</a></li>
+                            <li><a onClick={() => handleNavClick('contact')} className={currentPage === 'contact' ? 'active' : ''}>Contact</a></li>
                         </ul>
                     </div>
-                </nav>
+                </>
             );
         }
 
@@ -1057,7 +1444,7 @@
                         padding: '180px 60px 100px',
                         background: 'linear-gradient(135deg, var(--black), var(--dark-gray))',
                         textAlign: 'center'
-                    }}>
+                    }} className="solutions-hero">
                         <div className="section-badge" style={{background: 'rgba(255,255,255,0.1)', color: 'var(--light-purple)'}}>
                             What We Offer
                         </div>
