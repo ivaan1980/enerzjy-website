@@ -72,12 +72,28 @@
             object-fit: contain;
         }
 
+        .nav-logo-content {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
         .nav-logo-text {
             font-family: 'Montserrat', sans-serif;
             font-size: 2.2em;
             font-weight: 800;
             color: var(--black);
             letter-spacing: 5px;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .nav-logo-tagline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75em;
+            font-weight: 400;
+            color: var(--mid-gray);
+            letter-spacing: 3px;
             text-transform: uppercase;
         }
 
@@ -692,7 +708,10 @@
                     <div className="nav-content">
                         <div className="nav-logo" onClick={() => navigateTo('home')}>
                             <img src="logo-icon-only.png" alt="Enerzjy Logo" className="nav-logo-img" />
-                            <span className="nav-logo-text">Enerzjy</span>
+                            <div className="nav-logo-content">
+                                <span className="nav-logo-text">Enerzjy</span>
+                                <span className="nav-logo-tagline">Sustainability, Simplified</span>
+                            </div>
                         </div>
                         <ul className="nav-links">
                             <li><a onClick={() => navigateTo('home')} className={currentPage === 'home' ? 'active' : ''}>Home</a></li>
